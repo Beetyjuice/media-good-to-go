@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "Media & Blob Extractor",
+  "version": "1.0",
+  "description": "Find media and blob links on a page, preview them and download (Save As).",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "tabs"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_title": "Media Extractor",
+    "default_icon": "icons/icon-48.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
+
